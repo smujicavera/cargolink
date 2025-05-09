@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gracias por registrarte</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cargolink-style.css">
+</head>
+<body>
+  <nav>
+    <div style="display:flex; align-items:center; justify-content:center; gap:1rem; flex-wrap:wrap; padding:0.5rem 1rem;">
+      <a href="index.html"><img src="images/logo.png" alt="CargoLink Logo" style="height:60px;"></a>
+      <ul class="navbar">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="tarifas.html">Tarifas</a></li>
+        <li><a href="ofertas.html">Ofertas</a></li>
+        <li><a href="registro.html">Registro</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" style="text-align: center; max-width:600px; margin:auto;">
+    <h1 style="color: #031b4e;">✅ ¡Registro recibido con éxito!</h1>
+    <script>
+  const urlParams = new URLSearchParams(document.referrer);
+  const rol = urlParams.get('rol');
+  let mensaje = 'Gracias por unirte a la red de CargoLink. Pronto te contactaremos para ayudarte a comenzar.';
+  if (rol === 'Conductor') {
+    mensaje = 'Gracias por registrarte como conductor. Te contactaremos pronto para conectarte con nuevas oportunidades de carga.';
+  } else if (rol === 'Empresa') {
+    mensaje = 'Gracias por registrarte como empresa. En breve podrás publicar tus necesidades de transporte y contactar con conductores.';
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('mensaje').innerText = mensaje;
+  let seconds = 7;
+  const progressBar = document.getElementById('progressBar');
+  const countdownText = document.getElementById('countdown');
+  const interval = setInterval(() => {
+    seconds--;
+    countdownText.innerText = `Serás redirigido en ${seconds} segundo${seconds === 1 ? '' : 's'}...`;
+    progressBar.value = 100 - (seconds * 100 / 7);
+    if (seconds <= 0) {
+      clearInterval(interval);
+      window.location.href = 'index.html';
+    }
+  }, 1000); // redirige en 7 segundos
+});
+</script>
+<p id="mensaje" style="font-size:1.2rem;"></p>
+<div style="margin-top:1rem;">
+  <progress id="progressBar" value="0" max="100" style="width:100%; height:20px; accent-color:#ff7a00; background-color:#031b4e30; border-radius:6px;"></progress>
+  <p id="countdown" style="font-size:0.9rem; color:gray;">Serás redirigido en 7 segundos...</p>
+</div>
+    <p style="margin-top: 2rem;">
+      <a href="index.html" style="display:inline-block; background:#ff7a00; color:#fff; padding:0.8rem 1.5rem; border-radius:8px; text-decoration:none; font-weight:bold;">Volver al inicio</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 CargoLink. Todos los derechos reservados.</p>
+    <p>Contacto: <a href="tel:+56995602717" style="color:#fff; text-decoration: underline;">+56 9 9560 2717</a> | <a href="mailto:contacto@cargolink.cl" style="color:#fff; text-decoration: underline;">contacto@cargolink.cl</a></p>
+  </footer>
+</body>
+</html>
