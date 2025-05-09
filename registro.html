@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - CargoLink</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cargolink-style.css">
+</head>
+<body>
+  <nav>
+    <div style="display:flex; align-items:center; justify-content:center; gap:1rem; flex-wrap:wrap; padding:0.5rem 1rem;">
+      <a href="index.html"><img src="images/logo.png" alt="CargoLink Logo" style="height:60px;"></a>
+      <ul class="navbar">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="tarifas.html">Tarifas</a></li>
+        <li><a href="ofertas.html">Ofertas</a></li>
+        <li><a href="registro.html">Registro</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Registro</h1>
+    <p>Crea tu cuenta como empresa o conductor y comienza a operar con CargoLink</p>
+  </header>
+
+  <section class="section" style="max-width:600px; margin:auto;">
+    <form action="https://formsubmit.co/smujicallego@gmail.com" method="POST">
+      <input type="hidden" name="_next" value="https://cargolink.cl/gracias.html">
+      <input type="hidden" name="_captcha" value="false">
+      <label for="nombre">Nombre completo o de empresa:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" placeholder="Ej: +569 9123 4567" required>
+
+      <label for="rol">Soy:</label>
+      <select id="rol" name="rol" required>
+        <option value="">Selecciona tu rol</option>
+        <option value="Conductor">Conductor</option>
+        <option value="Empresa">Empresa</option>
+      </select>
+
+      <label for="mensaje">Comentarios o detalles adicionales (opcional):</label>
+      <textarea id="mensaje" name="mensaje" rows="4" placeholder="Marca del vehículo, tipo de carga, etc."></textarea>
+
+      <button type="submit">Registrarse</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 CargoLink. Todos los derechos reservados.</p>
+    <p>Contacto: <a href="tel:+56995602717" style="color:#fff; text-decoration: underline;">+56 9 9560 2717</a> | <a href="mailto:contacto@cargolink.cl" style="color:#fff; text-decoration: underline;">contacto@cargolink.cl</a></p>
+  </footer>
+</body>
+</html>
