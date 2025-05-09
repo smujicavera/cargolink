@@ -1,0 +1,50 @@
+[
+  {
+    "titulo": "Camión 5 Toneladas - Santiago a Rancagua",
+    "empresa": "Transporte Sur Express",
+    "tipo": "permanente",
+    "ubicacion": "Santiago - Rancagua",
+    "horario": "07:00 - 17:00",
+    "pago": "$900.000 mensual",
+    "publicado": "09 may 2025",
+    "expira": "30 may 2025",
+    "postulaciones": "3",
+    "requisitos": "camión 5T con plataforma"
+  },
+  {
+    "titulo": "Reparto con Furgón - Providencia",
+    "empresa": "Distribuidora Central",
+    "tipo": "temporal",
+    "ubicacion": "Santiago - Providencia",
+    "horario": "08:00 - 18:00",
+    "pago": "$40.000 diario",
+    "publicado": "08 may 2025",
+    "expira": "20 may 2025",
+    "postulaciones": "0",
+    "requisitos": "furgón cerrado"
+  },
+  {
+    "titulo": "Transporte de Encomiendas - Quilicura",
+    "empresa": "Logística Rápida",
+    "tipo": "permanente",
+    "ubicacion": "Santiago - Quilicura",
+    "horario": "06:00 - 14:00",
+    "pago": "$500.000 mensual",
+    "publicado": "09 may 2025",
+    "expira": "31 may 2025",
+    "postulaciones": "1",
+    "requisitos": "vehículo liviano tipo hatchback"
+  },
+  {
+    "titulo": "Flete Punta Arenas - Puerto Natales",
+    "empresa": "Sur Cargo Austral",
+    "tipo": "temporal",
+    "ubicacion": "Punta Arenas - Puerto Natales",
+    "horario": "09:00 - 20:00",
+    "pago": "$180.000 por viaje",
+    "publicado": "09 may 2025",
+    "expira": "15 may 2025",
+    "postulaciones": "2",
+    "requisitos": "camión 10T"
+  }
+]

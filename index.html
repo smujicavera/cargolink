@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CargoLink - Conectamos Transporte</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cargolink-style.css">
+</head>
+
+  <nav>
+  <div style="display:flex; align-items:center; justify-content:center; gap:1rem; flex-wrap:wrap; padding:0.5rem 1rem;">
+    <a href="index.html"><img src="images/logo.png" alt="CargoLink Logo" style="height:60px;"></a>
+    <ul class="navbar">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="tarifas.html">Tarifas</a></li>
+      <li><a href="ofertas.html">Ofertas</a></li>
+      <li><a href="index.html#evaluacion">Evaluación</a></li>
+    </ul>
+  </div>
+</nav>
+  </div>
+</nav>
+  </nav>
+  <header>
+    <h1>CargoLink</h1>
+    <p>Conectamos conductores con operadores de carga en todo Chile</p>
+  </header>
+
+  <section class="cta">
+    <h2>¿Tienes un vehículo de carga?</h2>
+    <p>Únete a nuestra red y empieza a mover carga con empresas verificadas.</p>
+    <button onclick="window.location.href='https://wa.me/56995602717'">Postula ahora vía WhatsApp</button>
+  </section>
+
+  
+
+  <section class="section pasos">
+    <h3>¡Comienza hoy en tres simples pasos!</h3>
+    <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem auto;">Solo sigue estos tres pasos y comienza a disfrutar de una experiencia sin barreras, ¡y totalmente gratis!</p>
+    <div class="grid">
+  <div class="card">
+    <h4><span style="background:#1d4ed8; color:white; padding:0.2rem 0.6rem; border-radius:9999px;">1</span> <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" width="20" style="vertical-align:middle; margin-right:8px;"> Crea tu cuenta</h4>
+    <p>Regístrate en menos de 2 minutos</p>
+    <button style="margin-top:0.5rem; background:#fff; color:#333; border:1px solid #ccc; padding:0.5rem 1rem; border-radius:8px; cursor:pointer;">Inicia sesión con Google</button>
+  </div>
+  <div class="card">
+    <h4><span style="background:#1d4ed8; color:white; padding:0.2rem 0.6rem; border-radius:9999px;">2</span> <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" width="20" style="vertical-align:middle; margin-right:8px;"> Selecciona tu rol</h4>
+    <p>Elige si eres conductor o empresa y completa tu perfil</p>
+  </div>
+  <div class="card">
+    <h4><span style="background:#1d4ed8; color:white; padding:0.2rem 0.6rem; border-radius:9999px;">3</span> <img src="https://cdn-icons-png.flaticon.com/512/3536/3536445.png" width="20" style="vertical-align:middle; margin-right:8px;"> Contacta por WhatsApp</h4>
+    <p>Encuentra oportunidades o conductores al instante</p>
+  </div>
+</div>
+  </section>
+
+<!-- Comunidad y beneficios -->
+<section class="section" style="background-color:#e6fef1; border-radius:16px; padding:3rem 2rem; margin: 2rem auto; max-width:1100px;">
+  <h3 style="text-align:left; color:#022c22;">🚛 Únete a la comunidad de CargoLink</h3>
+  <p style="text-align:left; max-width:600px; color:#055d4c;">Forma parte de nuestra red de conductores y empresas para estar al día con nuevas oportunidades, contactos del sector y contenido exclusivo.</p>
+  <ul style="list-style:none; padding:1rem 0 0 0; color:#055d4c;">
+    <li>✅ Acceso anticipado a ofertas de transporte</li>
+    <li>✅ Contacto directo con empresas verificadas</li>
+    <li>✅ Buenas prácticas y recomendaciones</li>
+  </ul>
+</section>
+
+<!-- Vista previa de tarifas (resumen) -->
+<a href="tarifas.html" style="display:block; text-align:center; margin:2rem auto; font-weight:bold; font-size:1.1rem; text-decoration:underline; color:#1d4ed8;">Ver todos los planes y precios &rarr;</a>
+
+  
+    <section class="section" id="evaluacion" style="text-align: center;">
+  <h3>Evalúa a una Transportadora</h3>
+  <p>Comparte tu experiencia y ayuda a otros conductores a elegir mejor.</p>
+    <form action="https://formsubmit.co/tu-correo@ejemplo.com" method="POST">
+      <label for="nombre">Tu nombre:</label><br>
+      <input type="text" id="nombre" name="nombre" required><br>
+
+      <label for="empresa">Nombre de la empresa:</label><br>
+      <input type="text" id="empresa" name="empresa" required><br>
+
+      <label for="puntuacion">Puntuación (1 a 5):</label><br>
+      <select id="puntuacion" name="puntuacion" required>
+        <option value="">Selecciona</option>
+        <option value="1">1 - Muy mala</option>
+        <option value="2">2 - Mala</option>
+        <option value="3">3 - Regular</option>
+        <option value="4">4 - Buena</option>
+        <option value="5">5 - Excelente</option>
+      </select><br>
+
+      <label for="comentario">Comentario:</label><br>
+      <textarea id="comentario" name="comentario" rows="5" placeholder="Describe tu experiencia..." required></textarea><br>
+
+      <button type="submit">Enviar Evaluación</button>
+  </form>
+</section>
+  </section>
+
+  
+
+<section class="section contacto" id="contacto" style="text-align:center; padding:3rem 1rem; background:#f9fafb;">
+  <h3>¿Tienes dudas o necesitas ayuda?</h3>
+  <p>Escríbenos al WhatsApp <strong>+56 9 9560 2717</strong> o al correo <a href="mailto:contacto@cargolink.cl">contacto@cargolink.cl</a></p>
+</section>
+
+  <a class="whatsapp" href="https://wa.me/56995602717" target="_blank" title="Chatea con nosotros por WhatsApp">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="20" height="20" alt="WhatsApp" />
+    Contacto rápido
+  </a>
+</body>
+</html>
