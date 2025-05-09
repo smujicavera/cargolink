@@ -6,108 +6,210 @@
   <title>CargoLink - Conectamos Transporte</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="cargolink-style.css">
-</head>
+<style>
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .botones {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+    .redes-sociales {
+      margin-top: 1rem;
+      justify-content: center;
+    }
+  }
+  [data-anim] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+  [data-anim].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
 
+    document.querySelectorAll("[data-anim]").forEach(el => observer.observe(el));
+  });
+</script>
+</head>
+<body>
   <nav>
-  <div style="display:flex; align-items:center; justify-content:center; gap:1rem; flex-wrap:wrap; padding:0.5rem 1rem;">
-    <a href="index.html"><img src="images/logo.png" alt="CargoLink Logo" style="height:60px;"></a>
-    <ul class="navbar">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="tarifas.html">Tarifas</a></li>
-      <li><a href="ofertas.html">Ofertas</a></li>
-      <li><a href="index.html#evaluacion">Evaluación</a></li>
-    </ul>
-  </div>
-</nav>
-  </div>
-</nav>
+    <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; padding:0.5rem 1rem;">
+      <a href="index.html"><img src="images/logo.png" alt="CargoLink Logo" style="height:60px;"></a>
+      <ul class="navbar">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="tarifas.html">Tarifas</a></li>
+        <li><a href="ofertas.html">Ofertas</a></li>
+        <li><a href="#evaluacion">Evaluación</a></li>
+        <li><a href="registro.html">Registro</a></li>
+      </ul>
+      <div class="redes-sociales" style="display:flex; gap:12px; align-items:center;">
+        <a href="#" title="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" style="width:24px; filter: grayscale(1); transition: 0.3s; border-radius:50%; background:white; padding:4px;" onmouseover="this.style.filter='none'; this.style.transform='scale(1.2)'" onmouseout="this.style.filter='grayscale(1)'; this.style.transform='scale(1)'" /></a>
+        <a href="#" title="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" style="width:24px; filter: grayscale(1); transition: 0.3s; border-radius:50%; background:white; padding:4px;" onmouseover="this.style.filter='none'; this.style.transform='scale(1.2)'" onmouseout="this.style.filter='grayscale(1)'; this.style.transform='scale(1)'" /></a>
+        <a href="mailto:contacto@cargolink.cl" title="Correo"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" style="width:24px; filter: grayscale(1); transition: 0.3s; border-radius:50%; background:white; padding:4px;" onmouseover="this.style.filter='none'; this.style.transform='scale(1.2)'" onmouseout="this.style.filter='grayscale(1)'; this.style.transform='scale(1)'" /></a>
+        <a href="https://wa.me/56995602717" target="_blank" title="WhatsApp"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" style="width:24px; filter: grayscale(1); transition: 0.3s; border-radius:50%; background:white; padding:4px;" onmouseover="this.style.filter='none'; this.style.transform='scale(1.2)'" onmouseout="this.style.filter='grayscale(1)'; this.style.transform='scale(1)'" /></a>
+      </div>
+    </div>
   </nav>
+
   <header>
     <h1>CargoLink</h1>
     <p>Conectamos conductores con operadores de carga en todo Chile</p>
   </header>
 
-  <section class="cta">
-    <h2>¿Tienes un vehículo de carga?</h2>
-    <p>Únete a nuestra red y empieza a mover carga con empresas verificadas.</p>
-    <button onclick="window.location.href='https://wa.me/56995602717'">Postula ahora vía WhatsApp</button>
+  <section class="section" data-anim>
+    <h3>📊 Nuestra Comunidad</h3>
+    <div class="grid" style="text-align:center;">
+      <div class="card">
+        <h4><span id="contador1">0</span>+</h4>
+        <p>Conductores registrados</p>
+      </div>
+      <div class="card">
+        <h4><span id="contador2">0</span>+</h4>
+        <p>Ofertas publicadas</p>
+      </div>
+      <div class="card">
+        <h4><span id="contador3">0</span>%</h4>
+        <p>Satisfacción de usuarios</p>
+      </div>
+    </div>
   </section>
 
-  
+  <script>
+    function animarContador(id, final, duracion) {
+      const elemento = document.getElementById(id);
+      let inicio = 0;
+      const paso = Math.ceil(final / (duracion / 30));
+      const intervalo = setInterval(() => {
+        inicio += paso;
+        if (inicio >= final) {
+          inicio = final;
+          clearInterval(intervalo);
+        }
+        elemento.textContent = inicio;
+      }, 30);
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+  const contadorObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animarContador("contador1", 1200, 1000);
+        animarContador("contador2", 700, 1000);
+        animarContador("contador3", 98, 1000);
+        contadorObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.5 });
 
-  <section class="section pasos">
+  const contadores = document.querySelector("#contador1").closest(".section");
+  if (contadores) contadorObserver.observe(contadores);
+});
+  </script>
+
+  <section class="cta" data-anim style="text-align:center; padding: 2rem 1rem; max-width: 900px; margin: 0 auto;"
+    <h2>¿Tienes un vehículo de carga?</h2>
+    <p>Únete a nuestra red y empieza a mover carga con empresas verificadas.</p>
+    <div class="botones">
+      <button onclick="window.location.href='registro.html'">👤 Registrarse ahora</button>
+      <button onclick="window.location.href='https://wa.me/56995602717'" style="background:#25D366;">💬 Postular por WhatsApp</button>
+    </div>
+  </section>
+
+  <section class="section pasos" data-anim>
     <h3>¡Comienza hoy en tres simples pasos!</h3>
     <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem auto;">Solo sigue estos tres pasos y comienza a disfrutar de una experiencia sin barreras, ¡y totalmente gratis!</p>
     <div class="grid">
-  <div class="card">
-    <h4><span style="background:#1d4ed8; color:white; padding:0.2rem 0.6rem; border-radius:9999px;">1</span> <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" width="20" style="vertical-align:middle; margin-right:8px;"> Crea tu cuenta</h4>
-    <p>Regístrate en menos de 2 minutos</p>
-    <button style="margin-top:0.5rem; background:#fff; color:#333; border:1px solid #ccc; padding:0.5rem 1rem; border-radius:8px; cursor:pointer;">Inicia sesión con Google</button>
-  </div>
-  <div class="card">
-    <h4><span style="background:#1d4ed8; color:white; padding:0.2rem 0.6rem; border-radius:9999px;">2</span> <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" width="20" style="vertical-align:middle; margin-right:8px;"> Selecciona tu rol</h4>
-    <p>Elige si eres conductor o empresa y completa tu perfil</p>
-  </div>
-  <div class="card">
-    <h4><span style="background:#1d4ed8; color:white; padding:0.2rem 0.6rem; border-radius:9999px;">3</span> <img src="https://cdn-icons-png.flaticon.com/512/3536/3536445.png" width="20" style="vertical-align:middle; margin-right:8px;"> Contacta por WhatsApp</h4>
-    <p>Encuentra oportunidades o conductores al instante</p>
-  </div>
-</div>
+      <div class="card">
+        <h4>1️⃣ Crea tu cuenta</h4>
+        <p>Regístrate en menos de 2 minutos</p>
+        <button style="margin-top:0.5rem; background:#fff; color:#333; border:1px solid #ccc;">Inicia sesión con Google</button>
+      </div>
+      <div class="card">
+        <h4>2️⃣ Selecciona tu rol</h4>
+        <p>Elige si eres conductor o empresa y completa tu perfil</p>
+      </div>
+      <div class="card">
+        <h4>3️⃣ Contacta por WhatsApp</h4>
+        <p>Encuentra oportunidades o conductores al instante</p>
+      </div>
+    </div>
   </section>
 
-<!-- Comunidad y beneficios -->
-<section class="section" style="background-color:#e6fef1; border-radius:16px; padding:3rem 2rem; margin: 2rem auto; max-width:1100px;">
-  <h3 style="text-align:left; color:#022c22;">🚛 Únete a la comunidad de CargoLink</h3>
-  <p style="text-align:left; max-width:600px; color:#055d4c;">Forma parte de nuestra red de conductores y empresas para estar al día con nuevas oportunidades, contactos del sector y contenido exclusivo.</p>
-  <ul style="list-style:none; padding:1rem 0 0 0; color:#055d4c;">
-    <li>✅ Acceso anticipado a ofertas de transporte</li>
-    <li>✅ Contacto directo con empresas verificadas</li>
-    <li>✅ Buenas prácticas y recomendaciones</li>
-  </ul>
-</section>
+  <section class="section" style="background-color:#e6fef1; border-radius:16px; padding:3rem 2rem;" data-anim>
+    <h3 style="color:#022c22;">🚛 Únete a la comunidad de CargoLink</h3>
+    <p style="max-width:600px; color:#055d4c; margin:auto;">Forma parte de nuestra red de conductores y empresas para estar al día con nuevas oportunidades, contactos del sector y contenido exclusivo.</p>
+    <ul style="list-style:none; padding:1rem 0; color:#055d4c; text-align:left; max-width:600px; margin:auto;">
+      <li>✅ Acceso anticipado a ofertas de transporte</li>
+      <li>✅ Contacto directo con empresas verificadas</li>
+      <li>✅ Buenas prácticas y recomendaciones</li>
+    </ul>
+    <div class="botones">
+      <button onclick="window.location.href='registro.html'">👤 Registrarse ahora</button>
+      <button onclick="window.location.href='https://wa.me/56995602717'" style="background:#25D366;">💬 Postular por WhatsApp</button>
+    </div>
+  </section>
 
-<!-- Vista previa de tarifas (resumen) -->
-<a href="tarifas.html" style="display:block; text-align:center; margin:2rem auto; font-weight:bold; font-size:1.1rem; text-decoration:underline; color:#1d4ed8;">Ver todos los planes y precios &rarr;</a>
+  <a href="tarifas.html" style="display:block; text-align:center; margin:2rem auto; font-weight:bold; font-size:1.1rem; text-decoration:underline; color:#1d4ed8;">Ver todos los planes y precios →</a>
 
-  
-    <section class="section" id="evaluacion" style="text-align: center;">
-  <h3>Evalúa a una Transportadora</h3>
-  <p>Comparte tu experiencia y ayuda a otros conductores a elegir mejor.</p>
+  <section class="section" id="evaluacion" style="text-align:center;" data-anim>
+    <h3>Evalúa a una Transportadora</h3>
+    <p>Comparte tu experiencia y ayuda a otros conductores a elegir mejor.</p>
     <form action="https://formsubmit.co/tu-correo@ejemplo.com" method="POST">
-      <label for="nombre">Tu nombre:</label><br>
-      <input type="text" id="nombre" name="nombre" required><br>
-
-      <label for="empresa">Nombre de la empresa:</label><br>
-      <input type="text" id="empresa" name="empresa" required><br>
-
-      <label for="puntuacion">Puntuación (1 a 5):</label><br>
-      <select id="puntuacion" name="puntuacion" required>
-        <option value="">Selecciona</option>
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="text" name="empresa" placeholder="Nombre de la empresa" required>
+      <select name="puntuacion" required>
+        <option value="">Puntuación (1 a 5)</option>
         <option value="1">1 - Muy mala</option>
         <option value="2">2 - Mala</option>
         <option value="3">3 - Regular</option>
         <option value="4">4 - Buena</option>
         <option value="5">5 - Excelente</option>
-      </select><br>
-
-      <label for="comentario">Comentario:</label><br>
-      <textarea id="comentario" name="comentario" rows="5" placeholder="Describe tu experiencia..." required></textarea><br>
-
+      </select>
+      <textarea name="comentario" rows="5" placeholder="Describe tu experiencia..." required></textarea>
       <button type="submit">Enviar Evaluación</button>
-  </form>
-</section>
+      <button type="button" onclick="window.location.href='index.html'" style="background:#ccc; color:#000;">Volver al inicio</button>
+    </form>
   </section>
 
-  
-
-<section class="section contacto" id="contacto" style="text-align:center; padding:3rem 1rem; background:#f9fafb;">
-  <h3>¿Tienes dudas o necesitas ayuda?</h3>
-  <p>Escríbenos al WhatsApp <strong>+56 9 9560 2717</strong> o al correo <a href="mailto:contacto@cargolink.cl">contacto@cargolink.cl</a></p>
-</section>
+  <section class="section contacto" id="contacto" data-anim>
+    <h3>¿Tienes dudas o necesitas ayuda?</h3>
+    <p>Escríbenos al WhatsApp <strong>+56 9 9560 2717</strong> o al correo <a href="mailto:contacto@cargolink.cl">contacto@cargolink.cl</a></p>
+  </section>
 
   <a class="whatsapp" href="https://wa.me/56995602717" target="_blank" title="Chatea con nosotros por WhatsApp">
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="20" height="20" alt="WhatsApp" />
     Contacto rápido
   </a>
+
+  <footer>
+    <p>&copy; 2025 CargoLink. Todos los derechos reservados.</p>
+    <p>Contacto: <a href="tel:+56995602717">+56 9 9560 2717</a> | <a href="mailto:contacto@cargolink.cl">contacto@cargolink.cl</a></p>
+    <div class="redes-sociales">
+      <a href="#" title="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" /></a>
+      <a href="#" title="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" /></a>
+      <a href="mailto:contacto@cargolink.cl" title="Correo"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" /></a>
+      <a href="https://wa.me/56995602717" target="_blank" title="WhatsApp"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" /></a>
+    </div>
+  </footer>
 </body>
 </html>
