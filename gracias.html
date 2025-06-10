@@ -23,7 +23,7 @@
   <section class="section" style="text-align: center; max-width:600px; margin:auto;">
     <h1 style="color: #031b4e;">✅ ¡Registro recibido con éxito!</h1>
     <script>
-  const urlParams = new URLSearchParams(document.referrer);
+  const urlParams = new URLSearchParams(window.location.search);
   const rol = urlParams.get('rol');
   let mensaje = 'Gracias por unirte a la red de CargoLink. Pronto te contactaremos para ayudarte a comenzar.';
   if (rol === 'Conductor') {
