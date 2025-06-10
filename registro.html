@@ -26,8 +26,8 @@
   </header>
 
   <section class="section" style="max-width:600px; margin:auto;">
-    <form action="https://formsubmit.co/smujicallego@gmail.com" method="POST">
-      <input type="hidden" name="_next" value="https://cargolink.cl/gracias.html">
+    <form id="registroForm" action="https://formsubmit.co/smujicallego@gmail.com" method="POST">
+      <input type="hidden" name="_next" id="_next" value="https://cargolink.cl/gracias.html">
       <input type="hidden" name="_captcha" value="false">
       <label for="nombre">Nombre completo o de empresa:</label>
       <input type="text" id="nombre" name="nombre" required>
@@ -50,6 +50,15 @@
 
       <button type="submit">Registrarse</button>
     </form>
+    <script>
+      document.getElementById('registroForm').addEventListener('submit', function() {
+        const rol = document.getElementById('rol').value;
+        const nextField = document.getElementById('_next');
+        if (rol) {
+          nextField.value = `https://cargolink.cl/gracias.html?rol=${encodeURIComponent(rol)}`;
+        }
+      });
+    </script>
   </section>
 
   <footer>
