@@ -291,3 +291,19 @@ footer a:hover {
     font-size: 2rem;
   }
 }
+.direccion {
+  margin-top: 1rem;
+}
+.direccion p {
+  margin-bottom: 0.5rem;
+}
+.direccion iframe {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+@media (max-width: 768px) {
+  .direccion iframe {
+    height: 150px;
+  }
+}
