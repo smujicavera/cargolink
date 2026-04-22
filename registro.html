@@ -4,57 +4,107 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro - CargoLink</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Regístrate gratis en CargoLink como conductor o empresa y empieza a conectar con oportunidades de transporte en Chile.">
+  <meta name="theme-color" content="#031b4e">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="cargolink-style.css">
 </head>
 <body>
-  <nav>
-    <div style="display:flex; align-items:center; justify-content:center; gap:1rem; flex-wrap:wrap; padding:0.5rem 1rem;">
-      <a href="index.html"><img src="images/logo.png" alt="CargoLink Logo" style="height:60px;"></a>
-      <ul class="navbar">
+  <nav class="site-nav" aria-label="Navegación principal">
+    <div class="nav-container">
+      <a class="nav-logo" href="index.html" aria-label="CargoLink - inicio">
+        <img src="images/logo.png" alt="CargoLink">
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+        <span></span>
+      </button>
+      <ul class="navbar" id="menu-principal">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="tarifas.html">Tarifas</a></li>
         <li><a href="ofertas.html">Ofertas</a></li>
-        <li><a href="registro.html">Registro</a></li>
+        <li><a href="index.html#evaluacion">Evaluación</a></li>
+        <li><a href="registro.html" class="active">Registro</a></li>
       </ul>
+      <div class="redes-sociales nav-social">
+        <a href="mailto:contacto@cargolink.cl" title="Correo" aria-label="Enviar correo"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="" loading="lazy"></a>
+        <a href="https://wa.me/56995602717" target="_blank" rel="noopener" title="WhatsApp" aria-label="Chatear por WhatsApp"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="" loading="lazy"></a>
+      </div>
     </div>
   </nav>
 
-  <header>
+  <header class="hero">
     <h1>Registro</h1>
-    <p>Crea tu cuenta como empresa o conductor y comienza a operar con CargoLink</p>
+    <p>Crea tu cuenta como empresa o conductor y comienza a operar con CargoLink.</p>
   </header>
 
-  <section class="section" style="max-width:600px; margin:auto;">
-    <form action="https://formsubmit.co/smujicallego@gmail.com" method="POST">
+  <section class="section" style="max-width:640px;" data-anim>
+    <form action="https://formsubmit.co/smujicallego@gmail.com" method="POST" novalidate>
       <input type="hidden" name="_next" value="https://cargolink.cl/gracias.html">
       <input type="hidden" name="_captcha" value="false">
-      <label for="nombre">Nombre completo o de empresa:</label>
-      <input type="text" id="nombre" name="nombre" required>
+      <input type="hidden" name="_subject" value="Nuevo registro en CargoLink">
 
-      <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" required>
+      <label for="nombre">Nombre completo o de empresa</label>
+      <input type="text" id="nombre" name="nombre" autocomplete="name" required>
 
-      <label for="telefono">Teléfono:</label>
-      <input type="tel" id="telefono" name="telefono" placeholder="Ej: +569 9123 4567" required>
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" autocomplete="email" required>
 
-      <label for="rol">Soy:</label>
+      <label for="telefono">Teléfono</label>
+      <input type="tel" id="telefono" name="telefono" placeholder="Ej: +569 9123 4567" autocomplete="tel" pattern="[+0-9\s()\-]{7,}" required>
+
+      <label for="rol">Soy</label>
       <select id="rol" name="rol" required>
         <option value="">Selecciona tu rol</option>
         <option value="Conductor">Conductor</option>
         <option value="Empresa">Empresa</option>
       </select>
 
-      <label for="mensaje">Comentarios o detalles adicionales (opcional):</label>
+      <label for="mensaje">Comentarios o detalles adicionales (opcional)</label>
       <textarea id="mensaje" name="mensaje" rows="4" placeholder="Marca del vehículo, tipo de carga, etc."></textarea>
 
-      <button type="submit">Registrarse</button>
+      <div class="botones">
+        <button type="submit">Registrarse</button>
+        <a class="btn btn-secondary" href="index.html">Cancelar</a>
+      </div>
     </form>
   </section>
 
+  <a class="whatsapp" href="https://wa.me/56995602717" target="_blank" rel="noopener" aria-label="Contacto rápido por WhatsApp">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="20" height="20" alt="" />
+    Contacto rápido
+  </a>
+
   <footer>
     <p>&copy; 2025 CargoLink. Todos los derechos reservados.</p>
-    <p>Contacto: <a href="tel:+56995602717" style="color:#fff; text-decoration: underline;">+56 9 9560 2717</a> | <a href="mailto:contacto@cargolink.cl" style="color:#fff; text-decoration: underline;">contacto@cargolink.cl</a></p>
+    <p>Contacto: <a href="tel:+56995602717">+56 9 9560 2717</a> | <a href="mailto:contacto@cargolink.cl">contacto@cargolink.cl</a></p>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll("[data-anim]").forEach(el => observer.observe(el));
+
+      const toggle = document.querySelector(".nav-toggle");
+      const menu = document.getElementById("menu-principal");
+      const social = document.querySelector(".nav-social");
+      if (toggle && menu) {
+        toggle.addEventListener("click", () => {
+          const open = menu.classList.toggle("open");
+          if (social) social.classList.toggle("open", open);
+          toggle.setAttribute("aria-expanded", String(open));
+        });
+      }
+    });
+  </script>
 </body>
 </html>
