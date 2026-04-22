@@ -4,45 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Planes y Tarifas - CargoLink</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Conoce los planes y tarifas de CargoLink. Opciones desde gratis hasta Pro para empresas que buscan conductores en Chile.">
+  <meta name="theme-color" content="#031b4e">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="cargolink-style.css">
 </head>
 <body>
-  <nav>
-  <div style="display:flex; align-items:center; justify-content:center; gap:1rem; flex-wrap:wrap; padding:0.5rem 1rem;">
-    <a href="index.html"><img src="images/logo.png" alt="CargoLink Logo" style="height:60px;"></a>
-    <ul class="navbar">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="tarifas.html">Tarifas</a></li>
-      <li><a href="ofertas.html">Ofertas</a></li>
-      <li><a href="index.html#evaluacion">Evaluación</a></li>
-    </ul>
-  </div>
-</nav>
+  <nav class="site-nav" aria-label="Navegación principal">
+    <div class="nav-container">
+      <a class="nav-logo" href="index.html" aria-label="CargoLink - inicio">
+        <img src="images/logo.png" alt="CargoLink">
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+        <span></span>
+      </button>
+      <ul class="navbar" id="menu-principal">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="tarifas.html" class="active">Tarifas</a></li>
+        <li><a href="ofertas.html">Ofertas</a></li>
+        <li><a href="index.html#evaluacion">Evaluación</a></li>
+        <li><a href="registro.html">Registro</a></li>
+      </ul>
+      <div class="redes-sociales nav-social">
+        <a href="mailto:contacto@cargolink.cl" title="Correo" aria-label="Enviar correo"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="" loading="lazy"></a>
+        <a href="https://wa.me/56995602717" target="_blank" rel="noopener" title="WhatsApp" aria-label="Chatear por WhatsApp"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="" loading="lazy"></a>
+      </div>
+    </div>
+  </nav>
 
-  <header>
+  <header class="hero">
     <h1>Planes y Tarifas</h1>
-    <p>Conecta con transportistas según las necesidades de tu empresa</p>
+    <p>Conecta con transportistas según las necesidades de tu empresa.</p>
   </header>
 
-  <section class="section tarifas" id="tarifas">
-    <h3 style="text-align:center;">📦 Planes para cada necesidad</h3>
-    <p style="text-align:center; margin-bottom:2rem;">Elige el plan que mejor se adapte a tu empresa y comienza a conectar con los mejores conductores</p>
+  <section class="section" id="tarifas" data-anim>
+    <h3>Planes para cada necesidad</h3>
+    <p class="section-lead">Elige el plan que mejor se adapte a tu empresa y comienza a conectar con los mejores conductores.</p>
     <div class="planes">
       <div class="plan free">
         <h4>Free</h4>
-        <p class="precio">CLP $0 / mes</p>
+        <p class="precio">CLP $0<span style="font-size:0.9rem;color:var(--color-text-muted);"> /mes</span></p>
         <ul>
           <li>✅ Contacto con hasta 10 transportistas por WhatsApp</li>
           <li>✅ Hasta 2 ofertas activas por mes</li>
           <li>✅ Visibilidad básica</li>
           <li>⏳ Publicación por 15 días</li>
         </ul>
-        <button>Comenzar gratis</button>
+        <a class="btn btn-secondary" href="registro.html">Comenzar gratis</a>
       </div>
       <div class="plan standard">
         <h4>Standard</h4>
-        <p class="precio">CLP $9.990 / mes</p>
+        <p class="precio">CLP $9.990<span style="font-size:0.9rem;color:var(--color-text-muted);"> /mes</span></p>
         <ul>
           <li>✅ Contacto ilimitado con transportistas</li>
           <li>✅ Publicaciones ilimitadas</li>
@@ -50,11 +65,11 @@
           <li>✅ Hasta 5 ofertas simultáneas</li>
           <li>⏳ Duración 30 días</li>
         </ul>
-        <button>Probar Standard</button>
+        <a class="btn" href="registro.html">Probar Standard</a>
       </div>
       <div class="plan pro">
         <h4>Pro <span class="badge">★ Más popular</span></h4>
-        <p class="precio">CLP $14.990 / mes</p>
+        <p class="precio">CLP $14.990<span style="font-size:0.9rem;color:var(--color-text-muted);"> /mes</span></p>
         <ul>
           <li>✅ Todo lo del plan Standard</li>
           <li>✅ Marca visible en ofertas</li>
@@ -62,13 +77,44 @@
           <li>✅ Documentación adicional</li>
           <li>✅ Duración de ofertas: 45 días</li>
         </ul>
-        <button>Elegir Pro</button>
+        <a class="btn" href="registro.html">Elegir Pro</a>
       </div>
     </div>
   </section>
 
+  <a class="whatsapp" href="https://wa.me/56995602717" target="_blank" rel="noopener" aria-label="Contacto rápido por WhatsApp">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="20" height="20" alt="" />
+    Contacto rápido
+  </a>
+
   <footer>
     <p>&copy; 2025 CargoLink. Todos los derechos reservados.</p>
+    <p>Contacto: <a href="tel:+56995602717">+56 9 9560 2717</a> | <a href="mailto:contacto@cargolink.cl">contacto@cargolink.cl</a></p>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll("[data-anim]").forEach(el => observer.observe(el));
+
+      const toggle = document.querySelector(".nav-toggle");
+      const menu = document.getElementById("menu-principal");
+      const social = document.querySelector(".nav-social");
+      if (toggle && menu) {
+        toggle.addEventListener("click", () => {
+          const open = menu.classList.toggle("open");
+          if (social) social.classList.toggle("open", open);
+          toggle.setAttribute("aria-expanded", String(open));
+        });
+      }
+    });
+  </script>
 </body>
 </html>
